@@ -1,5 +1,10 @@
 const request = require('request')
 
+/**
+ * Get people info
+ * @param  {string} url API end point to get people information
+ * @return {Promise}  Promise which resolves to an object with fields: starShipURL & vehicleURL
+ */
 const getPeopleInfo = (url) => {
   return new Promise((resolve, reject) => {
     request(url, (error, response, body) => {
@@ -12,6 +17,11 @@ const getPeopleInfo = (url) => {
   })
 }
 
+/**
+ * Get startship details
+ * @param  {string} url API end point to get startship information
+ * @return {Promise}  Promise which resolves to an object with fields: name, model & type
+ */
 const getStarShipInfo = (url) => {
   return new Promise((resolve, reject) => {
     request(url, (error, response, body) => {
@@ -22,6 +32,11 @@ const getStarShipInfo = (url) => {
   })
 }
 
+/**
+ * Get vehicle details
+ * @param  {string} url API end point to get vehicle information
+ * @return {Promise}  Promise which resolves to an object with fields: name, model & type
+ */
 const getVehicleInfo = (url) => {
   return new Promise((resolve, reject) => {
     request(url, (error, response, body) => {
@@ -31,6 +46,12 @@ const getVehicleInfo = (url) => {
     })
   })
 }
+
+/**
+ *  Note that the aync/wait version relies on the same promise-based routines as the promise example
+ *  It's only at the top level that async/await makes asynchronous code look synchronous and is easier to
+ *  read
+ */
 
 async function getLuke() {
     const lukeInfo = {

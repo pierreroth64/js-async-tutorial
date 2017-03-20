@@ -1,5 +1,10 @@
 const request = require('request')
 
+/**
+ * Get people info
+ * @param  {string} url API end point to get people information
+ * @return {Promise}  Promise which resolves to an object with fields: starShipURL & vehicleURL
+ */
 const getPeopleInfo = (url) => {
   return new Promise((resolve, reject) => {
     request(url, (error, response, body) => {
@@ -12,6 +17,11 @@ const getPeopleInfo = (url) => {
   })
 }
 
+/**
+ * Get startship details
+ * @param  {string} url API end point to get startship information
+ * @return {Promise}  Promise which resolves to an object with fields: name, model & type
+ */
 const getStarShipInfo = (url) => {
   return new Promise((resolve, reject) => {
     request(url, (error, response, body) => {
@@ -22,6 +32,11 @@ const getStarShipInfo = (url) => {
   })
 }
 
+/**
+ * Get vehicle details
+ * @param  {string} url API end point to get vehicle information
+ * @return {Promise}  Promise which resolves to an object with fields: name, model & type
+ */
 const getVehicleInfo = (url) => {
   return new Promise((resolve, reject) => {
     request(url, (error, response, body) => {
@@ -32,15 +47,18 @@ const getVehicleInfo = (url) => {
   })
 }
 
+/**
+ * Get Luke's details
+ * @param  {string} url API end point to get Luke's information
+ * @return {Promise}  Promise which resolves to a luke object with fields: name, startShip & vehicle
+ */
 const getLuke = () => {
     const lukeInfo = {
       name: 'Luke',
     }
     return getPeopleInfo('https://swapi.co/api/people/1')
       .then(({ starShipURL, vehicleURL}) => {
-        const requests = []
-        requests.push(getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL))
-        return Promise.all(requests)
+        return Promise.all([getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL)])
                 .then((results) => {
                   lukeInfo.startShip = results[0]
                   lukeInfo.vehicle = results[1]
