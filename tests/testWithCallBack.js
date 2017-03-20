@@ -5,6 +5,7 @@ function getLuke(cb) {
       name: 'Luke',
     }
 
+    /* Here stars the callback hell. Please notice the if (error) return cb(error) redundant code */
     request('https://swapi.co/api/people/1', (error, response, body) => {
       if (error) return cb(error)
 
