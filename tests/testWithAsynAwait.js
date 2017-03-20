@@ -36,22 +36,23 @@ async function getLuke() {
     const lukeInfo = {
       name: 'Luke',
     }
-    const { starShipURL, vehicleURL } = await getPeopleInfo('https://swapi.co/api/people/1')
-    const results = await Promise.all([getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL)])
-    lukeInfo.startShip = results[0]
-    lukeInfo.vehicle = results[1]
-    return lukeInfo
+    try {
+      const { starShipURL, vehicleURL } = await getPeopleInfo('https://swapi.co/api/people/1')
+      const results = await Promise.all([getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL)])
+      lukeInfo.startShip = results[0]
+      lukeInfo.vehicle = results[1]
+      return Promise.resolve(lukeInfo)
+    } catch (error) {
+      return Promise.reject(error)
+    }
+
 }
 
 describe('Example with async/await', () => {
 
   it('should get Luke details', async () => {
-    try {
       const info = await getLuke()
       console.log(info);
-    } catch (error) {
-      done(error)
-    }
   })
 })
 
