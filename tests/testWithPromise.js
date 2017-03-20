@@ -32,14 +32,11 @@ const getVehicleInfo = (url) => {
   })
 }
 
-describe('Example with Promises', () => {
-
-  it('should get Luke first vehicle', (done) => {
+const getLuke = () => {
     const lukeInfo = {
       name: 'Luke',
     }
-
-    getPeopleInfo('https://swapi.co/api/people/1')
+    return getPeopleInfo('https://swapi.co/api/people/1')
       .then(({ starShipURL, vehicleURL}) => {
         const requests = []
         requests.push(getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL))
@@ -47,10 +44,21 @@ describe('Example with Promises', () => {
                 .then((results) => {
                   lukeInfo.startShip = results[0]
                   lukeInfo.vehicle = results[1]
-                  console.log(lukeInfo)
-                  done()
+                  return Promise.resolve(lukeInfo)
                 })
       })
+}
+
+describe('Example with Promises', () => {
+
+  it('should get Luke details', (done) => {
+
+    getLuke()
+      .then((info) => {
+        console.log(info)
+        done()
+      })
+      .catch((error) => done(error))
   })
 })
 
