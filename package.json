@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --log-timer-events --recursive tests"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/pierreroth64/js-async-tutorial/issues"
   },
-  "homepage": "https://github.com/pierreroth64/js-async-tutorial#readme"
+  "homepage": "https://github.com/pierreroth64/js-async-tutorial#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
 }
