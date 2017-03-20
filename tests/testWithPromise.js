@@ -1,4 +1,4 @@
-var request = require('request')
+const request = require('request')
 
 const getPeopleInfo = (url) => {
   return new Promise((resolve, reject) => {
