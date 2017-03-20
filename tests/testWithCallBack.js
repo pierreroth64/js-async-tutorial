@@ -1,12 +1,13 @@
 var request = require('request')
 
-describe('test with callback', () => {
+describe('Example with Callbacks', () => {
+
   it('should get Luke first vehicle', (done) => {
+    const lukeInfo = {
+      name: 'Luke',
+    }
 
     request('https://swapi.co/api/people/1', (error, response, body) => {
-      const lukeInfo = {
-        name: 'Luke',
-      }
       if (error) return done(error)
 
       const data = JSON.parse(body)
