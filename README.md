@@ -7,6 +7,12 @@ Simple examples with different implementations based on:
 + promises
 + async/await
 
+## Prerequisite / install
+
+You need a version of [NodeJS](https://nodejs.org/) supporting async/await.
+
+Then, as usual, `npm install` (or `yarn install`)
+
 ## Details
 
 This test code plays with the [Star Wars API](https://swapi.co/)
