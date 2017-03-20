@@ -1,5 +1,7 @@
 # JS aync code tutorial
 
+[![Build Status](https://travis-ci.org/pierreroth64/js-async-tutorial.svg?branch=master)](https://travis-ci.org/pierreroth64/js-async-tutorial)
+
 Simple examples with different implementations based on:
 + callbacks
 + promises
