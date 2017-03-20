@@ -13,6 +13,9 @@ function getLuke(cb) {
       const startShipURL = data.starships[0]
       const vehicleURL = data.vehicles[0]
 
+      /* Once we have startShipURL and vehicleURL we could run these requests in parallel
+         but callback based code does not easily allows us to do so */
+
       request(startShipURL, (error, response, body) => {
         if (error) return cb(error)
 
@@ -24,7 +27,7 @@ function getLuke(cb) {
 
           const { name, model, vehicle_class } = JSON.parse(body)
           lukeInfo.vehicle = { name, model, type: vehicle_class}
-          cb(null, lukeInfo) // <== Pass null in error and result as second arg
+          cb(null, lukeInfo) // <== Pass null as error and result as second arg
         })
       })
     })

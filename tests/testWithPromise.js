@@ -58,7 +58,7 @@ const getLuke = () => {
     }
     return getPeopleInfo('https://swapi.co/api/people/1')
       .then(({ starShipURL, vehicleURL}) => {
-        return Promise.all([getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL)])
+        return Promise.all([getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL)]) // <== parallel requests
                 .then((results) => {
                   lukeInfo.startShip = results[0]
                   lukeInfo.vehicle = results[1]
