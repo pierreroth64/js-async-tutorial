@@ -1,11 +1,11 @@
 const request = require('request')
 
 /**
- * Get people info
+ * Get URLs to later get starship & vehicle info
  * @param  {string} url API end point to get people information
  * @return {Promise}  Promise which resolves to an object with fields: starShipURL & vehicleURL
  */
-const getPeopleInfo = (url) => {
+const getStarShipAndVehicleURLs = (url) => {
   return new Promise((resolve, reject) => {
     request(url, (error, response, body) => {
       if (error) return reject(error)
@@ -58,7 +58,7 @@ async function getLuke() {
       name: 'Luke',
     }
     try {
-      const { starShipURL, vehicleURL } = await getPeopleInfo('https://swapi.co/api/people/1')
+      const { starShipURL, vehicleURL } = await getStarShipAndVehicleURLs('https://swapi.co/api/people/1')
       const results = await Promise.all([getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL)])  // <== parallel requests
       lukeInfo.startShip = results[0]
       lukeInfo.vehicle = results[1]
