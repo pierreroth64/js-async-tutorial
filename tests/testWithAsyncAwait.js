@@ -69,11 +69,14 @@ async function getLuke() {
 
 }
 
-describe('Example with async/await', () => {
+if (process.env.RUN_ALL || process.env.RUN_ASYNC_AWAIT) {
 
-  it('should get Luke details', async () => {
-      const info = await getLuke()
-      console.log(info);
+  describe('Example with async/await', () => {
+
+    it('should get Luke details', async () => {
+        const info = await getLuke()
+        console.log(info);
+    })
   })
-})
+}
 

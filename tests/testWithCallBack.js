@@ -33,14 +33,17 @@ function getLuke(cb) {
     })
 }
 
-describe('Example with Callbacks (Callback Hell)', () => {
+if (process.env.RUN_ALL || process.env.RUN_CALLBACK) {
 
-  it('should get Luke details', (done) => {
-    getLuke((error, info) => {
-      if (error) return done(error)
-      console.log(info)
-      done()
-    });
+  describe('Example with Callbacks (Callback Hell)', () => {
+
+    it('should get Luke details', (done) => {
+      getLuke((error, info) => {
+        if (error) return done(error)
+        console.log(info)
+        done()
+      });
+    })
   })
-})
+}
 

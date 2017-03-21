@@ -67,16 +67,18 @@ const getLuke = () => {
       })
 }
 
-describe('Example with Promises', () => {
+if (process.env.RUN_ALL || process.env.RUN_PROMISE) {
 
-  it('should get Luke details', (done) => {
+  describe('Example with Promises', () => {
 
-    getLuke()
-      .then((info) => {
-        console.log(info)
-        done()
-      })
-      .catch((error) => done(error))
+    it('should get Luke details', (done) => {
+
+      getLuke()
+        .then((info) => {
+          console.log(info)
+          done()
+        })
+        .catch((error) => done(error))
+    })
   })
-})
-
+}
