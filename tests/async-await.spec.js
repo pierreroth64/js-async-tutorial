@@ -18,8 +18,8 @@ const getStarShipAndVehicleURLs = (url) => {
 }
 
 /**
- * Get startship details
- * @param  {string} url API end point to get startship information
+ * Get starShip details
+ * @param  {string} url API end point to get starShip information
  * @return {Promise}  Promise which resolves to an object with fields: name, model & type
  */
 const getStarShipInfo = (url) => {
