@@ -1,8 +1,9 @@
 {
   "name": "js-async-tutorial",
   "version": "1.0.0",
-  "description": "",
+  "description": "JS async code tutorial: from callbacks to async/await",
   "main": "index.js",
+  "private": "true",
   "scripts": {
     "test-raw": "mocha --recursive tests",
     "test": "cross-env RUN_ALL=true npm run test-raw",
@@ -15,7 +16,7 @@
     "url": "git+https://github.com/pierreroth64/js-async-tutorial.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pierre Roth",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pierreroth64/js-async-tutorial/issues"
