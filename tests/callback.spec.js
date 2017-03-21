@@ -68,7 +68,7 @@ function getLuke(cb) {
 
         getVehicleInfo(vehicleURL, (err, vehicleInfo) => {
           if(err) return cb(err)
-          lukeInfo.vehicleInfo = vehicleInfo
+          lukeInfo.vehicle = vehicleInfo
 
           cb(null, lukeInfo) // <== success, run the callback with null as err, and data a
         })
