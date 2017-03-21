@@ -60,8 +60,9 @@ const getLuke = () => {
       .then(({ starShipURL, vehicleURL}) => {
         return Promise.all([getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL)]) // <== parallel requests
                 .then((results) => {
-                  lukeInfo.startShip = results[0]
-                  lukeInfo.vehicle = results[1]
+                  const [ startShipInfo, vehicleInfo ] = results
+                  lukeInfo.vehicle = vehicleInfo
+                  lukeInfo.startShip = startShipInfo
                   return Promise.resolve(lukeInfo)
                 })
       })
