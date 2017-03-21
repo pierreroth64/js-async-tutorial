@@ -71,14 +71,8 @@ if (process.env.RUN_ALL || process.env.RUN_PROMISE) {
 
   describe('Example with Promises', () => {
 
-    it('should get Luke details', (done) => {
-
-      getLuke()
-        .then((info) => {
-          console.log(info)
-          done()
-        })
-        .catch((error) => done(error))
+    it('should get Luke details', () => {
+      return getLuke().then(console.log)
     })
   })
 }

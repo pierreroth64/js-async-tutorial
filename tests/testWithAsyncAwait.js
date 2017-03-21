@@ -74,8 +74,7 @@ if (process.env.RUN_ALL || process.env.RUN_ASYNC_AWAIT) {
   describe('Example with async/await', () => {
 
     it('should get Luke details', async () => {
-        const info = await getLuke()
-        console.log(info);
+        return getLuke().then(console.log);
     })
   })
 }
