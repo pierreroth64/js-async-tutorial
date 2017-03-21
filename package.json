@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-raw": "mocha --log-timer-events --recursive tests",
+    "test-raw": "mocha --recursive tests",
     "test": "cross-env RUN_ALL=true npm run test-raw",
     "test-callback": "cross-env RUN_CALLBACK=true npm run test-raw",
     "test-async-await": "cross-env RUN_ASYNC_AWAIT=true npm run test-raw",
