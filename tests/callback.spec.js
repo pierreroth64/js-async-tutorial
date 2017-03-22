@@ -58,8 +58,8 @@ function getLuke(cb) {
       const { vehicleURL, starShipURL } = urls
 
       /*
-        Note that here we have vehicleURL and starShipURL so we could request this APIs in parallel
-        But it's not easy with callbacks: we could do it using by using settimeout but there's still the
+        Note that here we have vehicleURL and starShipURL so we could request this urls in parallel
+        but it's not easy with callbacks: we could do it using by using settimeout but there's still the
         join to be done.
        */
       getStarShipInfo(starShipURL, (err, starShipInfo) => {
