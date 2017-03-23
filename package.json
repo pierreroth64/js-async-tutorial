@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": "true",
   "scripts": {
-    "test-raw": "mocha --recursive tests",
+    "test-raw": "npm run lint && mocha --recursive tests",
     "test": "cross-env RUN_ALL=true npm run test-raw",
     "test-callback": "cross-env RUN_CALLBACK=true npm run test-raw",
     "test-async-await": "cross-env RUN_ASYNC_AWAIT=true npm run test-raw",
