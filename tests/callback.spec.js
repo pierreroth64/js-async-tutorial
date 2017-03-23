@@ -2,7 +2,7 @@ const request = require('request')
 
 /**
  * Get URLs to later get starship & vehicle info
- * @param  {Function} cb Callback(err, {startShipURL, vehicleURL})
+ * @param  {Function} cb Callback(err, {starShipURL, vehicleURL})
  */
 const getStarShipAndVehicleURLs = (url, cb) => {
   request('https://swapi.co/api/people/1', (error, response, body) => {

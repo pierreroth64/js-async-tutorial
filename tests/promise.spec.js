@@ -18,8 +18,8 @@ const getStarShipAndVehicleURLs = (url) => {
 }
 
 /**
- * Get startship details
- * @param  {string} url API end point to get startship information
+ * Get starship details
+ * @param  {string} url API end point to get starship information
  * @return {Promise}  Promise which resolves to an object with fields: name, model & type
  */
 const getStarShipInfo = (url) => {
@@ -50,7 +50,7 @@ const getVehicleInfo = (url) => {
 /**
  * Get Luke's details
  * @param  {string} url API end point to get Luke's information
- * @return {Promise}  Promise which resolves to a luke object with fields: name, startShip & vehicle
+ * @return {Promise}  Promise which resolves to a luke object with fields: name, starShip & vehicle
  */
 const getLuke = () => {
     const lukeInfo = {
@@ -60,9 +60,9 @@ const getLuke = () => {
       .then(({ starShipURL, vehicleURL}) => {
         return Promise.all([getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL)]) // <== parallel requests
                 .then((results) => {
-                  const [ startShipInfo, vehicleInfo ] = results
+                  const [ starShipInfo, vehicleInfo ] = results
                   lukeInfo.vehicle = vehicleInfo
-                  lukeInfo.startShip = startShipInfo
+                  lukeInfo.starShip = starShipInfo
                   return Promise.resolve(lukeInfo)
                 })
       })
