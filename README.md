@@ -23,8 +23,9 @@ Compare the `getLuke()` method and you should understand why Promises were a hug
 
 ### Performance
 
-Performing parallel requests with async/await or promise based code is easier, you should notice that the callback solution is slower than the other two.
-By default `npm test` run all the tests. You can compare `npm run test-callback` with `npm run test-promise` or `npm run test-async-await` to see performance differences (to see available commands: `npm run`)
+Performing parallel requests with async/await or promise based code is easier and you should notice that the callback solution is slower than the other two since it does not parallelize requests.
+
+By default `npm test` runs all the tests. You can compare `npm run test-callback` with `npm run test-promise` or `npm run test-async-await` to notice performance differences (to list available commands: `npm run`)
 
 ![Test run](./test_run.png?raw=true "Test run")
 
