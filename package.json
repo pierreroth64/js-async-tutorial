@@ -9,22 +9,32 @@
     "test": "cross-env RUN_ALL=true npm run test-raw",
     "test-callback": "cross-env RUN_CALLBACK=true npm run test-raw",
     "test-async-await": "cross-env RUN_ASYNC_AWAIT=true npm run test-raw",
-    "test-promise": "cross-env RUN_PROMISE=true npm run test-raw"
+    "test-promise": "cross-env RUN_PROMISE=true npm run test-raw",
+    "lint": "standard --verbose"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pierreroth64/js-async-tutorial.git"
   },
+  "standard": {
+    "env": {
+      "node": "true",
+      "mocha": "true"
+    },
+    "parser": "babel-eslint"
+  },
   "keywords": [],
   "author": "Pierre Roth",
-  "license": "ISC",
+  "license": "No-License (see LICENSE file)",
   "bugs": {
     "url": "https://github.com/pierreroth64/js-async-tutorial/issues"
   },
   "homepage": "https://github.com/pierreroth64/js-async-tutorial#readme",
   "devDependencies": {
+    "babel-eslint": "^7.2.0",
     "cross-env": "^3.2.4",
     "mocha": "^3.2.0",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "standard": "^9.0.2"
   }
 }

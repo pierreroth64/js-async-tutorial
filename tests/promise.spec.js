@@ -12,7 +12,7 @@ const getStarShipAndVehicleURLs = (url) => {
       const data = JSON.parse(body)
       const starShipURL = data.starships[0]
       const vehicleURL = data.vehicles[0]
-      resolve({ starShipURL, vehicleURL} )
+      resolve({ starShipURL, vehicleURL })
     })
   })
 }
@@ -27,7 +27,7 @@ const getStarShipInfo = (url) => {
     request(url, (error, response, body) => {
       if (error) return reject(error)
       const { name, model, starship_class } = JSON.parse(body)
-      resolve({ name, model, type: starship_class})
+      resolve({ name, model, type: starship_class })
     })
   })
 }
@@ -42,7 +42,7 @@ const getVehicleInfo = (url) => {
     request(url, (error, response, body) => {
       if (error) return reject(error)
       const { name, model, vehicle_class } = JSON.parse(body)
-      resolve({ name, model, type: vehicle_class})
+      resolve({ name, model, type: vehicle_class })
     })
   })
 }
@@ -53,25 +53,23 @@ const getVehicleInfo = (url) => {
  * @return {Promise}  Promise which resolves to a luke object with fields: name, starShip & vehicle
  */
 const getLuke = () => {
-    const lukeInfo = {
-      name: 'Luke',
-    }
-    return getStarShipAndVehicleURLs('https://swapi.co/api/people/1')
-      .then(({ starShipURL, vehicleURL}) => {
-        return Promise.all([getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL)]) // <== parallel requests
-                .then((results) => {
-                  const [ starShipInfo, vehicleInfo ] = results
-                  lukeInfo.vehicle = vehicleInfo
-                  lukeInfo.starShip = starShipInfo
-                  return Promise.resolve(lukeInfo)
-                })
-      })
+  const lukeInfo = {
+    name: 'Luke'
+  }
+  return getStarShipAndVehicleURLs('https://swapi.co/api/people/1')
+    .then(({ starShipURL, vehicleURL }) => {
+      return Promise.all([ getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL) ]) // <== parallel requests
+              .then((results) => {
+                const [ starShipInfo, vehicleInfo ] = results
+                lukeInfo.vehicle = vehicleInfo
+                lukeInfo.starShip = starShipInfo
+                return Promise.resolve(lukeInfo)
+              })
+    })
 }
 
 if (process.env.RUN_ALL || process.env.RUN_PROMISE) {
-
   describe('Example with Promises', () => {
-
     it('should get Luke details', () => {
       return getLuke().then(console.log)
     })

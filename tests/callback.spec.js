@@ -25,7 +25,7 @@ const getStarShipInfo = (url, cb) => {
     if (error) return cb(error)
 
     const { name, model, starship_class } = JSON.parse(body)
-    cb(null, { name, model, type: starship_class})
+    cb(null, { name, model, type: starship_class })
   })
 }
 
@@ -39,7 +39,7 @@ const getVehicleInfo = (url, cb) => {
     if (error) return cb(error)
 
     const { name, model, vehicle_class } = JSON.parse(body)
-    cb(null, { name, model, type: vehicle_class})
+    cb(null, { name, model, type: vehicle_class })
   })
 }
 
@@ -47,46 +47,43 @@ const getVehicleInfo = (url, cb) => {
  * Get Luke's information
  * @param  {Function} cb Callback(err, lukeInfo)
  */
-function getLuke(cb) {
-    const lukeInfo = {
-      name: 'Luke',
-    }
+const getLuke = (cb) => {
+  const lukeInfo = {
+    name: 'Luke'
+  }
 
-    /* Here stars the callback hell. Please notice the if (error) return cb(err) repeated code */
-    getStarShipAndVehicleURLs('https://swapi.co/api/people/1', (err, urls) => {
+  /* Here stars the callback hell. Please notice the if (error) return cb(err) repeated code */
+  getStarShipAndVehicleURLs('https://swapi.co/api/people/1', (err, urls) => {
+    if (err) return cb(err)
+    const { vehicleURL, starShipURL } = urls
+
+    /*
+      Note that here we have vehicleURL and starShipURL so we could request this urls in parallel
+      but it's not easy with callbacks: we could do it using by using settimeout but there's still the
+      join to be done.
+     */
+    getStarShipInfo(starShipURL, (err, starShipInfo) => {
       if (err) return cb(err)
-      const { vehicleURL, starShipURL } = urls
+      lukeInfo.starShip = starShipInfo
 
-      /*
-        Note that here we have vehicleURL and starShipURL so we could request this urls in parallel
-        but it's not easy with callbacks: we could do it using by using settimeout but there's still the
-        join to be done.
-       */
-      getStarShipInfo(starShipURL, (err, starShipInfo) => {
+      getVehicleInfo(vehicleURL, (err, vehicleInfo) => {
         if (err) return cb(err)
-        lukeInfo.starShip = starShipInfo
+        lukeInfo.vehicle = vehicleInfo
 
-        getVehicleInfo(vehicleURL, (err, vehicleInfo) => {
-          if(err) return cb(err)
-          lukeInfo.vehicle = vehicleInfo
-
-          cb(null, lukeInfo) // <== success, run the callback with null as err, and data a
-        })
+        cb(null, lukeInfo) // <== success, run the callback with null as err, and data a
       })
     })
+  })
 }
 
 if (process.env.RUN_ALL || process.env.RUN_CALLBACK) {
-
   describe('Example with Callbacks (Callback Hell)', () => {
-
     it('should get Luke details', (done) => {
       getLuke((error, info) => {
         if (error) return done(error)
         console.log(info)
         done()
-      });
+      })
     })
   })
 }
-
