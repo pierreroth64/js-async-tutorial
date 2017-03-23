@@ -17,7 +17,7 @@ Then, as usual, `npm install` (or `yarn install`)
 
 This test code plays with the [Star Wars API](https://swapi.co/)
 
-Run `npm test` and you should see the same results for all the implementations. However, you may notice that the **async/await** code is simpler to read than the **promise** based one one... and far more easy to follow than the **callback** (hell) code ;)
+Run `npm test` and you should see the same results for all the implementations. However, you may notice that the **async/await** code is simpler to read than the **promise** based one... and far more easy to follow than the **callback** (hell) code ;)
 
 Compare the `getLuke()` method and you should understand why Promises were a huge improvement and async/await was waited for so long.
 
