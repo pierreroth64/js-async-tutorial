@@ -10,7 +10,7 @@
     "test-callback": "cross-env RUN_CALLBACK=true npm run test-raw",
     "test-async-await": "cross-env RUN_ASYNC_AWAIT=true npm run test-raw",
     "test-promise": "cross-env RUN_PROMISE=true npm run test-raw",
-    "lint": "standard --verbose"
+    "lint": "standard --verbose | snazzy"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
     "cross-env": "^3.2.4",
     "mocha": "^3.2.0",
     "request": "^2.81.0",
+    "snazzy": "^6.0.0",
     "standard": "^9.0.2"
   }
 }
