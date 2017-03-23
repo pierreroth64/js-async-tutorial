@@ -77,3 +77,12 @@ if (process.env.RUN_ALL || process.env.RUN_PROMISE) {
     })
   })
 }
+
+/**
+ * These functions are exported because async/await example also relies on promise based routines
+ */
+module.exports = {
+  getStarShipAndVehicleURLs,
+  getStarShipInfo,
+  getVehicleInfo
+}

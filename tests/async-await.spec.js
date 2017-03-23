@@ -1,51 +1,5 @@
-const request = require('request')
-
-/**
- * Get URLs to later get starship & vehicle info
- * @param  {string} url API end point to get people information
- * @return {Promise}  Promise which resolves to an object with fields: starShipURL & vehicleURL
- */
-const getStarShipAndVehicleURLs = (url) => {
-  return new Promise((resolve, reject) => {
-    request(url, (error, response, body) => {
-      if (error) return reject(error)
-      const data = JSON.parse(body)
-      const starShipURL = data.starships[0]
-      const vehicleURL = data.vehicles[0]
-      resolve({ starShipURL, vehicleURL} )
-    })
-  })
-}
-
-/**
- * Get starShip details
- * @param  {string} url API end point to get starShip information
- * @return {Promise}  Promise which resolves to an object with fields: name, model & type
- */
-const getStarShipInfo = (url) => {
-  return new Promise((resolve, reject) => {
-    request(url, (error, response, body) => {
-      if (error) return reject(error)
-      const { name, model, starship_class } = JSON.parse(body)
-      resolve({ name, model, type: starship_class})
-    })
-  })
-}
-
-/**
- * Get vehicle details
- * @param  {string} url API end point to get vehicle information
- * @return {Promise}  Promise which resolves to an object with fields: name, model & type
- */
-const getVehicleInfo = (url) => {
-  return new Promise((resolve, reject) => {
-    request(url, (error, response, body) => {
-      if (error) return reject(error)
-      const { name, model, vehicle_class } = JSON.parse(body)
-      resolve({ name, model, type: vehicle_class})
-    })
-  })
-}
+const request = require('request'),
+      { getStarShipAndVehicleURLs, getStarShipInfo, getVehicleInfo } = require('./promise.spec');
 
 /**
  *  Note that the aync/wait version relies on the same promise-based routines as the promise example
