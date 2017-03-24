@@ -6,7 +6,7 @@ const { getStarShipAndVehicleURLs, getStarShipInfo, getVehicleInfo } = require('
  *  read
  */
 
-async function getLuke () {
+const getLuke = async () => {
   const lukeInfo = {
     name: 'Luke'
   }
