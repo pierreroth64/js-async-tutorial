@@ -24,7 +24,10 @@
     "parser": "babel-eslint"
   },
   "keywords": [
-    "callback", "promise", "async/await", "tutorial"
+    "callback",
+    "promise",
+    "async/await",
+    "tutorial"
   ],
   "author": "Pierre Roth",
   "license": "No-License (see LICENSE file)",
