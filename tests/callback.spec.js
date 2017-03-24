@@ -52,7 +52,7 @@ const getLuke = (cb) => {
     name: 'Luke'
   }
 
-  /* Here stars the callback hell. Please notice the if (error) return cb(err) repeated code */
+  /* Here starts the callback hell. Please notice the if (err) return cb(err) repeated code */
   getStarShipAndVehicleURLs('https://swapi.co/api/people/1', (err, urls) => {
     if (err) return cb(err)
     const { vehicleURL, starShipURL } = urls
