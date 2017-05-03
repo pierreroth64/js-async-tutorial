@@ -12,8 +12,7 @@ const getLuke = async () => {
   }
   try {
     const { starShipURL, vehicleURL } = await getStarShipAndVehicleURLs('https://swapi.co/api/people/1')
-    const results = await Promise.all([ getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL) ])  // <== parallel requests
-    const [ starShipInfo, vehicleInfo ] = results
+    const [ starShipInfo, vehicleInfo ] = await Promise.all([ getStarShipInfo(starShipURL), getVehicleInfo(vehicleURL) ])  // <== parallel requests
     lukeInfo.vehicle = vehicleInfo
     lukeInfo.starShip = starShipInfo
     return Promise.resolve(lukeInfo)
