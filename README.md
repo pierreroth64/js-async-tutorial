@@ -13,7 +13,7 @@ Simple examples with different implementations based on:
 
 You need a version of [NodeJS](https://nodejs.org/) supporting async/await (tested with 7.7.3).
 
-Then, as usual, `npm install` (or `yarn install`)
+Then, `npm install` and `npm test`
 
 ## Details
 
