@@ -1,4 +1,4 @@
-# JS aync code tutorial
+# JS async code tutorial
 
 *"from callbacks to async/await"*
 
