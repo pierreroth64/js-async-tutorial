@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": "true",
   "scripts": {
-    "test-raw": "npm run lint && mocha --recursive tests",
+    "test-raw": "npm run lint && mocha --recursive tests --timeout 10000",
     "test": "cross-env RUN_ALL=true npm run test-raw",
     "test-callback": "cross-env RUN_CALLBACK=true npm run test-raw",
     "test-async-await": "cross-env RUN_ASYNC_AWAIT=true npm run test-raw",
@@ -36,11 +36,11 @@
   },
   "homepage": "https://github.com/pierreroth64/js-async-tutorial#readme",
   "devDependencies": {
-    "babel-eslint": "^7.2.0",
-    "cross-env": "^3.2.4",
-    "mocha": "^3.2.0",
-    "request": "^2.81.0",
-    "snazzy": "^6.0.0",
-    "standard": "^9.0.2"
+    "babel-eslint": "7.2.0",
+    "cross-env": "3.2.4",
+    "mocha": "3.2.0",
+    "request": "2.81.0",
+    "snazzy": "6.0.0",
+    "standard": "9.0.2"
   }
 }
