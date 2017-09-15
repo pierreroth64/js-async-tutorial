@@ -1,4 +1,4 @@
-# JS async code tutorial   [![Travis-CI Status](https://travis-ci.org/pierreroth64/js-async-tutorial.svg?branch=master)](https://travis-ci.org/pierreroth64/js-async-tutorial)
+# JS async tutorial   [![Travis-CI Status](https://travis-ci.org/pierreroth64/js-async-tutorial.svg?branch=master)](https://travis-ci.org/pierreroth64/js-async-tutorial)
 
 > "from callbacks to async/await"
 
