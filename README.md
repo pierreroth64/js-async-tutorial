@@ -1,7 +1,5 @@
 # JS async tutorial [![Travis-CI Status](https://travis-ci.org/pierreroth64/js-async-tutorial.svg?branch=master)](https://travis-ci.org/pierreroth64/js-async-tutorial)
 
-[![Known Vulnerabilities](https://snyk.io/test/github/pierreroth64/js-async-tutorial:package.json/badge.svg?targetFile=package.json)](https://snyk.io/test/github/pierreroth64/js-async-tutorial:package.json?targetFile=package.json)
-
 > "from callbacks to async/await"
 
 Simple examples with different implementations based on:
