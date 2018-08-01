@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "description": "JS async code tutorial: from callbacks to async/await",
   "main": "index.js",
-  "private": "true",
   "scripts": {
     "test-raw": "npm run lint && mocha --recursive tests --timeout 10000",
     "test": "cross-env RUN_ALL=true npm run test-raw",
     "test-callback": "cross-env RUN_CALLBACK=true npm run test-raw",
     "test-async-await": "cross-env RUN_ASYNC_AWAIT=true npm run test-raw",
     "test-promise": "cross-env RUN_PROMISE=true npm run test-raw",
-    "lint": "standard --verbose | snazzy"
+    "lint": "standard tests --verbose | snazzy"
   },
   "repository": {
     "type": "git",
@@ -36,11 +35,11 @@
   },
   "homepage": "https://github.com/pierreroth64/js-async-tutorial#readme",
   "devDependencies": {
-    "babel-eslint": "7.2.0",
-    "cross-env": "3.2.4",
-    "mocha": "3.2.0",
-    "request": "2.81.0",
-    "snazzy": "6.0.0",
-    "standard": "9.0.2"
+    "babel-eslint": "8.2.6",
+    "cross-env": "5.2.0",
+    "mocha": "5.2.0",
+    "request": "2.87.0",
+    "snazzy": "7.1.1",
+    "standard": "11.0.1"
   }
 }

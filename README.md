@@ -1,16 +1,18 @@
-# JS async tutorial   [![Travis-CI Status](https://travis-ci.org/pierreroth64/js-async-tutorial.svg?branch=master)](https://travis-ci.org/pierreroth64/js-async-tutorial)                 
+# JS async tutorial [![Travis-CI Status](https://travis-ci.org/pierreroth64/js-async-tutorial.svg?branch=master)](https://travis-ci.org/pierreroth64/js-async-tutorial)
+
 [![Known Vulnerabilities](https://snyk.io/test/github/pierreroth64/js-async-tutorial:package.json/badge.svg?targetFile=package.json)](https://snyk.io/test/github/pierreroth64/js-async-tutorial:package.json?targetFile=package.json)
 
 > "from callbacks to async/await"
 
 Simple examples with different implementations based on:
-+ callbacks
-+ promises
-+ async/await
+
+- callbacks
+- promises
+- async/await
 
 ## Prerequisite / install
 
-You need a version of [NodeJS](https://nodejs.org/) supporting async/await (tested with 7.7.3).
+You need a version of [NodeJS](https://nodejs.org/) supporting async/await (tested with 8.11.2).
 
 Then, `npm install` and `npm test`
 
@@ -27,9 +29,9 @@ Compare the `getLuke()` method and you should understand why Promises were a hug
 Performing parallel requests with async/await or promise based code is easier and you should notice that the callback solution is slower than the other two since it does not parallelize requests.
 
 By default `npm test` runs all the tests. To compare performance, run:
-+ `npm run test-callback`
-+ `npm run test-promise`
-+ `npm run test-async-await`
+
+- `npm run test-callback`
+- `npm run test-promise`
+- `npm run test-async-await`
 
 ![Test run](./test_run.png?raw=true "Test run")
-
